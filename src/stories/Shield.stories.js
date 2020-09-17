@@ -3,7 +3,7 @@ import React from "react";
 import Shield from "../components/shield";
 
 export default {
-  title: "Spacefun/Heart",
+  title: "Spacefun/Shield",
   component: Shield,
   argTypes: {
     color: { control: "color" },

@@ -14,18 +14,23 @@ export default {
 
 const Template = (args) => {
   const [count, setCount] = useState(args.count);
+  const [hidden, setHidden] = useState(false);
   const inc = () => (count < 5 ? setCount(count + 1) : null);
   const dec = () => (count > 1 ? setCount(count - 1) : null);
+  const toggleHidden = () => setHidden(!hidden);
 
   return (
     <div>
       <button onClick={dec}>-</button>
       <button onClick={inc}>+</button>
+      <button onClick={toggleHidden}>{hidden ? "show" : "hide"}</button>
       <br></br>
 
-      <svg width="256" height="48">
+      <svg width="256" height="256">
         <g transform={`translate(0 16)`}>
-          <Stack count={count}>{args.item}</Stack>
+          <Stack count={count} hidden={hidden}>
+            {args.item}
+          </Stack>
         </g>
       </svg>
     </div>
