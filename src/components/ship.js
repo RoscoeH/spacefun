@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import PropTypes from "prop-types";
 import { jsx } from "theme-ui";
 import { motion } from "framer-motion";
 
@@ -34,7 +35,6 @@ const Ship = ({ size = 64, color }) => (
         </feMerge>
       </filter>
     </defs>
-    <rect x={0} y={0} width={16} height={16} />
     <path
       style={{ filter: "url(#dropshadow)" }}
       fill={color}
@@ -52,5 +52,10 @@ const Ship = ({ size = 64, color }) => (
     />
   </motion.g>
 );
+
+Ship.propTypes = {
+  size: PropTypes.number,
+  color: PropTypes.string
+};
 
 export default Ship;

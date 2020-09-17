@@ -7,10 +7,11 @@ export default {
   component: Ship,
   argTypes: {
     color: { control: "color" },
+    size: { control: "number"}
   },
 };
 
-const SIZE = 256;
+const SIZE = 128;
 const Template = (args) => (
   <svg width={SIZE} height={SIZE}>
     <g transform={`translate(${SIZE / 2}, ${SIZE / 2})`}>
