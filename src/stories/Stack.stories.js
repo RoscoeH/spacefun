@@ -7,32 +7,33 @@ export default {
   title: "Spacefun/Stack",
   component: Stack,
   argTypes: {
-    count: { control: "number"}
+    count: { control: "number" },
   },
 };
 
-const SIZE = 48;
 const Template = (args) => {
   const [count, setCount] = useState(args.count);
+  const inc = () => (count < 5 ? setCount(count + 1) : null);
+  const dec = () => (count > 2 ? setCount(count - 1) : null);
 
   return (
     <div>
-    <button onClick={() => setCount(count - 1)}>-</button>
-    <button onClick={() => setCount(count + 1)}>+</button><br></br>
-  <Stack count={count}>
+      <button onClick={dec}>-</button>
+      <button onClick={inc}>+</button>
+      <br></br>
 
-
-    <svg width={SIZE} height={SIZE}>
-      <g transform={`translate(${SIZE / 4}, ${SIZE / 4})`}>
-        <Heart />
-      </g>
-    </svg>
-  </Stack>
-  </div>
-)
+      <svg width="256" height="48">
+        <g transform={`translate(0 16)`}>
+          <Stack count={count}>
+            <Heart />
+          </Stack>
+        </g>
+      </svg>
+    </div>
+  );
 };
 
 export const Static = Template.bind({});
 Static.args = {
-  count: 3
+  count: 3,
 };
