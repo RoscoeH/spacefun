@@ -6,7 +6,7 @@ export default {
     monospace: "Menlo, monospace",
   },
   colors: {
-    text: "#F2EBBF",
+    text: "#F2F2F2",
     background: "#5C4B51",
     primary: "#F2EBBF",
   },

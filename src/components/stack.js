@@ -1,6 +1,5 @@
 /** @jsx jsx */
 //import PropTypes from "prop-types";
-import { useState } from "react";
 import { jsx } from "theme-ui";
 import { AnimatePresence, motion } from "framer-motion";
 
