@@ -2,12 +2,12 @@
 //import PropTypes from "prop-types";
 import { jsx } from "theme-ui";
 
-const Heart = ({ color = "#F06060", size }) => (
+const Heart = ({ color, size }) => (
   <g>
     <g filter="url(#filter0_d)">
       <path
         d="M29.0619 13.9655L18.0001 24.9999L6.93839 13.9655C-1.35811 5.68959 9.70361 -5.34482 18.0001 2.93099C26.2962 -5.3449 37.3579 5.68959 29.0619 13.9655Z"
-        fill={color}
+        fill={color || "heart"}
       />
     </g>
     <defs>

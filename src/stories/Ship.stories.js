@@ -7,11 +7,13 @@ export default {
   component: Ship,
   argTypes: {
     color: { control: "color" },
-    size: { control: "number"}
+    size: { control: "number" },
+    healing: { control: "boolean" },
+    shielding: { control: "boolean" },
   },
 };
 
-const SIZE = 128;
+const SIZE = 256;
 const Template = (args) => (
   <svg width={SIZE} height={SIZE}>
     <g transform={`translate(${SIZE / 2}, ${SIZE / 2})`}>
@@ -23,4 +25,16 @@ const Template = (args) => (
 export const Static = Template.bind({});
 Static.args = {
   color: "pink",
+};
+
+export const Healing = Template.bind({});
+Healing.args = {
+  color: "pink",
+  healing: true,
+};
+
+export const Shielding = Template.bind({});
+Shielding.args = {
+  color: "pink",
+  shielding: true,
 };

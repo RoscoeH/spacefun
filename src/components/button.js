@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import { jsx, useThemeUI } from "theme-ui";
+import { jsx } from "theme-ui";
 import { motion } from "framer-motion";
 
 const Button = ({ children, ...props }) => {
-  const { theme } = useThemeUI();
   return (
     <motion.button
       type="button"

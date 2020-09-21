@@ -1,3 +1,9 @@
+const RED = "#F06060";
+const YELLOW = "#F3B562";
+const BLUE = "#8CBEB2";
+const CREME = "#F2EBBF";
+const WHITE = "#F2F2F2";
+
 export default {
   fonts: {
     body:
@@ -6,11 +12,13 @@ export default {
     monospace: "Menlo, monospace",
   },
   colors: {
-    text: "#F2F2F2",
+    text: WHITE,
     background: "#5C4B51",
-    primary: "#F2EBBF",
-    secondary: "#8CBEB2",
-    accent: "#F06060",
+    primary: CREME,
+    secondary: BLUE,
+    accent: RED,
+    shield: YELLOW,
+    heart: RED,
   },
   styles: {
     root: {
