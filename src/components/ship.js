@@ -4,7 +4,7 @@ import { jsx } from "theme-ui";
 import { motion } from "framer-motion";
 
 const TAIL_INSET = 2 / 15;
-const DURATION = 4;
+const DURATION = 8;
 
 const bodyPath = (size) => `m0,-${size / 2} 
 l${size / 2},${size}
@@ -84,8 +84,8 @@ const Shield = ({ size, color }) => (
 const Ship = ({ size = 64, color, flipped, healing, shielding }) => (
   <motion.g
     animate={{
-      scale: [1, 1.2, 1],
-      y: [0, -size / 6, 0],
+      scale: [1, 1.1, 1],
+      y: [0, -size / 8, 0],
     }}
     transition={{ duration: DURATION, ease: "easeInOut", loop: Infinity }}
   >
