@@ -1,15 +1,26 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, useThemeUI } from "theme-ui";
+import { motion } from "framer-motion";
 
 const Button = ({ children, ...props }) => {
+  const { theme } = useThemeUI();
   return (
-    <button
+    <motion.button
       type="button"
       {...props}
-      sx={{ p: 3, border: "none", borderRadius: "100%" }}
+      whileTap={{ y: 4, boxShadow: "0 2px 2px rgba(0,0,0,0.2)" }}
+      initial={{ boxShadow: "0 8px 6px rgba(0,0,0,0.2)" }}
+      sx={{
+        p: 3,
+        border: "none",
+        borderRadius: "100%",
+        outline: "none",
+
+        "& > *": { verticalAlign: "middle" },
+      }}
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 

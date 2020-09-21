@@ -9,10 +9,11 @@ export default {
     text: "#F2F2F2",
     background: "#5C4B51",
     primary: "#F2EBBF",
+    secondary: "#8CBEB2",
+    accent: "#F06060",
   },
   styles: {
     root: {
-      // uses the theme values provided above
       fontFamily: "body",
       fontWeight: "body",
     },
