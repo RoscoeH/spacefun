@@ -14,32 +14,7 @@ z`;
 
 const Body = ({ size, color }) => (
   <g>
-    <defs>
-      <filter id="dropshadow" height="130%">
-        <motion.feGaussianBlur
-          in="SourceAlpha"
-          animate={{ stdDeviation: [3, 6, 3] }}
-          transition={{ duration: DURATION, loop: Infinity }}
-        />
-        <motion.feOffset
-          result="offsetblur"
-          dx="0"
-          animate={{ dy: [4, 8, 4] }}
-          transition={{ duration: DURATION, loop: Infinity }}
-        />
-        <feComponentTransfer>
-          <feFuncA type="linear" slope="0.3" />{" "}
-        </feComponentTransfer>
-        <feMerge>
-          <feMergeNode /> <feMergeNode in="SourceGraphic" />{" "}
-        </feMerge>
-      </filter>
-    </defs>
-    <path
-      style={{ filter: "url(#dropshadow)" }}
-      fill={color}
-      d={bodyPath(size)}
-    />
+    <path sx={{ fill: color || "heart" }} d={bodyPath(size)} />
     <path
       fill="rgba(0,0,0,0.1)"
       d={`m0,-${size / 2} l${size / 2},${size} l-${size / 2},-${
@@ -62,7 +37,7 @@ const Regen = ({ size, color }) => (
 
 const Shield = ({ size, color }) => (
   <g transform="translate(-32 -48)">
-    <g filter="url(#filter0_d)">
+    <g>
       <path
         d="M60 27.8485C60 29.2593 59.8945 30.6456 59.691 32C57.6756 18.5887 46.0455 8.30291 32 8.30291C17.9545 8.30291 6.3244 18.5887 4.30901 32C4.10547 30.6456 4 29.2593 4 27.8485C4 12.4682 16.536 0 32 0C47.464 0 60 12.4682 60 27.8485Z"
         sx={{ fill: "shield" }}
@@ -106,7 +81,7 @@ const Shield = ({ size, color }) => (
   </g>
 );
 
-const Ship = ({ size = 64, color, healing, shielding }) => (
+const Ship = ({ size = 64, color, flipped, healing, shielding }) => (
   <motion.g
     animate={{
       scale: [1, 1.2, 1],
@@ -114,9 +89,32 @@ const Ship = ({ size = 64, color, healing, shielding }) => (
     }}
     transition={{ duration: DURATION, ease: "easeInOut", loop: Infinity }}
   >
-    <Body size={size} color={color} />
-    {healing && <Regen size={size} color={color} />}
-    {shielding && <Shield size={size} />}
+    <defs>
+      <filter id="dropshadow" height="130%">
+        <motion.feGaussianBlur
+          in="SourceAlpha"
+          animate={{ stdDeviation: [3, 6, 3] }}
+          transition={{ duration: DURATION, loop: Infinity }}
+        />
+        <motion.feOffset
+          result="offsetblur"
+          dx="0"
+          animate={{ dy: [4, 8, 4] }}
+          transition={{ duration: DURATION, loop: Infinity }}
+        />
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.3" />{" "}
+        </feComponentTransfer>
+        <feMerge>
+          <feMergeNode /> <feMergeNode in="SourceGraphic" />{" "}
+        </feMerge>
+      </filter>
+    </defs>
+    <g transform={!flipped || "scale(1, -1)"}>
+      <Body size={size} color={color} />
+      {healing && <Regen size={size} color={color} />}
+      {shielding && <Shield size={size} />}
+    </g>
   </motion.g>
 );
 

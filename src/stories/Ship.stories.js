@@ -8,6 +8,7 @@ export default {
   argTypes: {
     color: { control: "color" },
     size: { control: "number" },
+    flipped: { control: "boolean" },
     healing: { control: "boolean" },
     shielding: { control: "boolean" },
   },
@@ -36,5 +37,22 @@ Healing.args = {
 export const Shielding = Template.bind({});
 Shielding.args = {
   color: "pink",
+  shielding: true,
+};
+
+export const Flipped = Template.bind({});
+Flipped.args = {
+  flipped: true,
+};
+
+export const FlippedAndHealing = Template.bind({});
+FlippedAndHealing.args = {
+  flipped: true,
+  healing: true,
+};
+
+export const FlippedAndShielding = Template.bind({});
+FlippedAndShielding.args = {
+  flipped: true,
   shielding: true,
 };

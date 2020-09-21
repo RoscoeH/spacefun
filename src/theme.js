@@ -19,6 +19,7 @@ export default {
     accent: RED,
     shield: YELLOW,
     heart: RED,
+    bullet: BLUE,
   },
   styles: {
     root: {
