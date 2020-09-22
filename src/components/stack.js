@@ -7,7 +7,7 @@ const item = {
   hidden: { y: 8, opacity: 0, transition: { duration: 0.2 } },
   visible: { y: 0, opacity: 1, transition: { duration: 0.2 } },
 };
-const Stack = ({ children, count = 4, hidden = false }) => {
+const Stack = ({ children, count = 4, hidden, flipped }) => {
   return (
     <AnimatePresence>
       {[...Array(hidden ? 0 : count)].map((_, i) => (
@@ -18,7 +18,9 @@ const Stack = ({ children, count = 4, hidden = false }) => {
           animate="visible"
           exit="hidden"
         >
-          <g transform={`translate(${i * 36} 0)`}>{children}</g>
+          <g transform={`translate(${(flipped ? -i : i) * 36} 0)`}>
+            {children}
+          </g>
         </motion.g>
       ))}
     </AnimatePresence>

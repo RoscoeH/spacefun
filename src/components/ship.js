@@ -110,7 +110,7 @@ const Ship = ({ size = 64, color, flipped, healing, shielding }) => (
         </feMerge>
       </filter>
     </defs>
-    <g transform={!flipped || "scale(1, -1)"}>
+    <g transform={flipped ? "scale(1, -1)" : ""}>
       <Body size={size} color={color} />
       {healing && <Regen size={size} color={color} />}
       {shielding && <Shield size={size} />}
